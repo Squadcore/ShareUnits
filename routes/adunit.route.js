@@ -45,9 +45,11 @@ adUnitRoutes.route('/update/:id').post(function (req, res) {
     if (!adUnit)
       return next(new Error('Could not load Document'));
     else {
-        adUnit.unit_name = req.body.unit_name;
-        adUnit.unit_price = req.body.unit_price;
+        adUnit.unit_price.push({
+          value: req.body.unit_price
+        });
 
+        console.log(req.body.unit_price);
         adUnit.save().then(adUnit => {
           res.json('Update complete');
       })

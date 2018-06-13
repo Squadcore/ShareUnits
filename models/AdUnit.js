@@ -8,9 +8,12 @@ let AdUnit = new Schema({
   unit_name: {
     type: String
   },
-  unit_price: {
-    type: Number
-  }
+  unit_price: [
+    {
+      value: String,
+      updated_date: { type: Date, default: Date.now }
+    }
+  ]
 },{
     collection: 'adunits'
 });

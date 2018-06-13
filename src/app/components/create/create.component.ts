@@ -11,19 +11,18 @@ export class CreateComponent implements OnInit {
 
   angForm: FormGroup;
 
-  constructor(private adunitservice: AdunitService, private fb: FormBuilder) { 
+  constructor(private adunitservice: AdunitService, private fb: FormBuilder) {
     this.createForm();
   }
 
   createForm() {
     this.angForm = this.fb.group({
-      unit_name: ['', Validators.required ],
-      unit_price: ['', Validators.required ]
+      unit_name: ['', Validators.required ]
    });
   }
 
   addAdUnit(unit_name, unit_price) {
-    this.adunitservice.addAdUnit(unit_name, unit_price);
+    this.adunitservice.addAdUnit(unit_name);
 }
   ngOnInit() {
   }

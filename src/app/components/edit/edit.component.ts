@@ -22,14 +22,13 @@ export class EditComponent implements OnInit {
     }
     createForm() {
       this.angForm = this.fb.group({
-             unit_name: ['', Validators.required ],
               unit_price: ['', Validators.required ]
          });
       }
 
-    updateAdUnit(unit_name, unit_price) {
+    updateAdUnit(unit_price) {
       this.route.params.subscribe(params => {
-          this.adunitservice.updateAdUnit(unit_name, unit_price, params['id']);
+          this.adunitservice.updateAdUnit(unit_price, params['id']);
           this.router.navigate(['index']);
       });
     }

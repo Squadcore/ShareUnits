@@ -11,10 +11,9 @@ export class AdunitService {
 
   constructor(private http: HttpClient) { }
 
-  addAdUnit(unit_name, unit_price) {
+  addAdUnit(unit_name) {
     const obj = {
-      unit_name: unit_name,
-      unit_price: unit_price
+      unit_name: unit_name
     };
     this.http.post(`${this.uri}/add`, obj)
         .subscribe(res => console.log('Done'));
@@ -32,10 +31,9 @@ editAdUnit(id) {
             .get(`${this.uri}/edit/${id}`);
 }
 
-updateAdUnit(unit_name, unit_price, id) {
+updateAdUnit(unit_price, id) {
 
   const obj = {
-    unit_name: unit_name,
     unit_price: unit_price
   };
   this
