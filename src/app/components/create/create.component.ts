@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
 import { AdunitService } from '../../adunit.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-create',
@@ -11,7 +12,7 @@ export class CreateComponent implements OnInit {
 
   angForm: FormGroup;
 
-  constructor(private adunitservice: AdunitService, private fb: FormBuilder) {
+  constructor(private adunitservice: AdunitService, private fb: FormBuilder, private router: Router) {
     this.createForm();
   }
 
@@ -23,6 +24,7 @@ export class CreateComponent implements OnInit {
 
   addAdUnit(unit_name, unit_price) {
     this.adunitservice.addAdUnit(unit_name);
+    this.router.navigate(['index']);
 }
   ngOnInit() {
   }
